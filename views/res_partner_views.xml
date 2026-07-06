@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partner_form_inherit_lisa_winback" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit.lisa.winback</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <!-- Insert header before sheet for manual send action -->
+            <xpath expr="//sheet" position="before">
+                <header>
+                    <button name="action_send_lisa_winback" 
+                            string="Send Lisa Win-Back" 
+                            type="object" 
+                            class="btn-primary"
+                            invisible="lisa_wb_processed or not x_lisa_wb_email_html"/>
+                </header>
+            </xpath>
+            <!-- Insert smart button inside button_box -->
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button class="oe_stat_button" type="object" name="action_view_winback_campaign" icon="fa-envelope">
+                    <div class="o_stat_info">
+                        <span class="o_stat_text">Win-Back</span>
+                        <span class="o_stat_text">Campaign</span>
+                    </div>
+                </button>
+            </xpath>
+            <!-- Add a dedicated page in partner notebook to view the campaign draft -->
+            <xpath expr="//notebook" position="inside">
+                <page string="Lisa AI Win-Back" invisible="not x_lisa_wb_email_html">
+                    <group>
+                        <group string="Campaign Status">
+                            <field name="lisa_wb_processed" readonly="1"/>
+                        </group>
+                        <newline/>
+                        <group string="Draft Win-Back Email Content">
+                            <field name="x_lisa_wb_email_subject" readonly="1"/>
+                            <field name="x_lisa_wb_email_html" widget="html" readonly="1"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

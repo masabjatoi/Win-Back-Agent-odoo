@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_lisa_wb" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.lisa.wb</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app string="Lisa Win-Back" name="lisa_win_back_agent">
+                    <block title="Lisa Win-Back AI Agent Settings" name="lisa_wb_agent_setting_container">
+                        <setting help="Number of days of purchase inactivity before campaign starts" id="lisa_wb_inactivity_setting">
+                            <field name="lisa_wb_inactivity_threshold_days"/>
+                        </setting>
+                        <setting help="Days between outreach emails" id="lisa_wb_interval_setting">
+                            <field name="lisa_wb_interval_days"/>
+                        </setting>
+                        <setting help="Discount code or promo text to insert in Email 2" id="lisa_wb_offer_setting">
+                            <field name="lisa_wb_offer_email2"/>
+                        </setting>
+                        <setting help="Maximum emails in the drip sequence" id="lisa_wb_max_emails_setting">
+                            <field name="lisa_wb_max_emails"/>
+                        </setting>
+                        <setting help="Win-back only based on previously purchased categories" id="lisa_wb_segment_setting">
+                            <field name="lisa_wb_segment_by_category"/>
+                        </setting>
+                        <setting help="Automatically send emails without manual approval" id="lisa_wb_auto_reply_setting">
+                            <field name="lisa_wb_auto_reply"/>
+                        </setting>
+                        <setting help="All outgoing campaign emails will be redirected to this address (leave empty to disable override)" id="lisa_wb_recipient_override_setting">
+                            <field name="lisa_wb_recipient_override"/>
+                        </setting>
+                        <setting string="Manually Run Agent" help="Launch the campaign agent background run for all eligible customers" id="lisa_wb_run_agent_setting">
+                            <button name="action_run_winback_agent" string="Run Win-Back Agent" type="object" class="btn-primary"/>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+</odoo>

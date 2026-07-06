@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Action for Config Settings -->
+    <record id="action_lisa_winback_config_settings" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+        <field name="context">{'module' : 'lisa_win_back_agent'}</field>
+    </record>
+
+    <!-- Top-level Menu Item -->
+    <menuitem id="menu_lisa_winback_root" name="Lisa Win-Back" groups="base.group_user" sequence="55"/>
+
+    <!-- Configuration Menu Item -->
+    <menuitem id="menu_lisa_winback_configuration" name="Configuration" parent="menu_lisa_winback_root" sequence="100"/>
+
+    <!-- Settings Menu Item under Configuration -->
+    <menuitem id="menu_lisa_winback_settings" name="Settings" parent="menu_lisa_winback_configuration" action="action_lisa_winback_config_settings" sequence="10"/>
+</odoo>

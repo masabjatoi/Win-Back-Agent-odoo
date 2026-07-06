@@ -1,0 +1,21 @@
+{
+    'name': 'Lisa Win-Back Agent',
+    'version': '19.0.1.0.0',
+    'category': 'Sales',
+    'summary': 'AI Agent for customer win-back drip campaigns',
+    'description': "Integrates Lisa AI agent to re-engage inactive customers using multi-stage drip emails.",
+    'author': 'AI Team',
+    'depends': ['sale_management', 'mail'],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/res_config_settings_views.xml',
+        'views/res_partner_views.xml',
+        'views/winback_campaign_views.xml',
+        'views/menus_views.xml',
+        'data/mail_template_data.xml',
+        'data/winback_cron.xml',
+    ],
+    'installable': True,
+    'application': True,
+    'license': 'LGPL-3',
+}
