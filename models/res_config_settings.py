@@ -40,12 +40,6 @@ class ResConfigSettings(models.TransientModel):
         string="Auto Reply",
         help="If enabled, campaign emails are sent automatically. Otherwise, drafts are saved to the customer's record for review."
     )
-    lisa_wb_recipient_override = fields.Char(
-        related='company_id.lisa_wb_recipient_override',
-        readonly=False,
-        string="Recipient Override Email",
-        help="If set, all campaign outreach emails are redirected to this address instead of the actual customer's email (useful for auditing/testing)."
-    )
 
     def action_run_winback_agent(self):
         """Runs the win-back campaign python agent script at the backend."""

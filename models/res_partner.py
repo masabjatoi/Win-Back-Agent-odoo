@@ -99,17 +99,7 @@ class ResPartner(models.Model):
             
         if not template:
             raise UserError(_("Mail Template 'Lisa Win-Back Campaign Outreach' not found. Please run the setup script or configure it."))
-
-        # Route directly to override email to protect real customers if configured
-        company = self.env.company
-        recipient_override = company.lisa_wb_recipient_override
         email_values = {}
-        if recipient_override:
-            email_values.update({
-                'email_to': recipient_override,
-                'partner_ids': [(6, 0, [])],
-                'recipient_ids': [(6, 0, [])]
-            })
         
         # Outgoing from salesperson's email as sender
         salesperson = self.user_id

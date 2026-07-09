@@ -26,9 +26,6 @@
                         <setting help="Automatically send emails without manual approval" id="lisa_wb_auto_reply_setting">
                             <field name="lisa_wb_auto_reply"/>
                         </setting>
-                        <setting help="All outgoing campaign emails will be redirected to this address (leave empty to disable override)" id="lisa_wb_recipient_override_setting">
-                            <field name="lisa_wb_recipient_override"/>
-                        </setting>
                         <setting string="Manually Run Agent" help="Launch the campaign agent background run for all eligible customers" id="lisa_wb_run_agent_setting">
                             <button name="action_run_winback_agent" string="Run Win-Back Agent" type="object" class="btn-primary"/>
                         </setting>

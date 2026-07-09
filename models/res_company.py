@@ -34,9 +34,4 @@ class ResCompany(models.Model):
         default=False,
         help="If enabled, campaign emails are sent automatically. Otherwise, drafts are saved to the customer's record for review."
     )
-    lisa_wb_recipient_override = fields.Char(
-        string='Recipient Override Email',
-        default='jatoimasab@gmail.com',
-        help="If set, all campaign outreach emails are redirected to this address instead of the actual customer's email (useful for auditing/testing)."
-    )
 
